@@ -1,0 +1,2 @@
+D:\EventHubPubSub\EventHubSubscriber\obj\Debug\EventHubSubscriber.csproj.AssemblyReference.cache
+D:\EventHubPubSub\EventHubSubscriber\obj\Debug\EventHubSubscriber.csproj.CoreCompileInputs.cache
