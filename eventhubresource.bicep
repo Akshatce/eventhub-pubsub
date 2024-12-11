@@ -9,17 +9,20 @@ param location string = resourceGroup().location
   'Basic'
   'Standard'
 ])
+param eventHubSku string = 'Standard'
+
 
 @description('The SKU of the Storage Account')
-param skuName string = 'Standard_LRS'
+param storageskuName string = 'Standard_LRS'
+
 
 @description('The kind of the Storage Account')
 param kind string = 'StorageV2'
 
 
-param eventHubSku string = 'Standard'
 
-var storageAccountName = '${projectName}-storage'
+
+var storageAccountName = '${projectName}storage'
 var eventHubNamespaceName = '${projectName}ns'
 var eventHubName = projectName
 
@@ -34,6 +37,7 @@ resource eventHubNamespace 'Microsoft.EventHub/namespaces@2021-11-01' = {
   properties: {
     isAutoInflateEnabled: false
     maximumThroughputUnits: 0
+    minimumTlsVersion: '1.2'
   }
 }
 
@@ -53,7 +57,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: storageAccountName
   location: location
   sku: {
-    name: skuName
+    name: storageskuName
   }
   kind: kind
   properties: {
